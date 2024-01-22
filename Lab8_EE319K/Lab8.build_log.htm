@@ -1,0 +1,117 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.38.0.0
+Copyright (C) 2022 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Andres Wearden, University of Texas at Austin, LIC=Y5IQ9-NADBF-U8UFG-8E6HM-RM735-GN9TJ
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Community  Version: 5.38.0.0
+Toolchain Path:  C:\Keil_v5\ARM\ARMCLANG\Bin
+C Compiler:      ArmClang.exe V6.19
+Assembler:       Armasm.exe V6.19
+Linker/Locator:  ArmLink.exe V6.19
+Library Manager: ArmAr.exe V6.19
+Hex Converter:   FromElf.exe V6.19
+CPU DLL:         SARMCM3.DLL V5.38.0.0
+Dialog DLL:      DCM.DLL V1.17.5.0
+Target DLL:      lmidk-agdi.dll V???
+Dialog DLL:      TCM.DLL V1.56.4.0
+ 
+<h2>Project:</h2>
+C:\Keil_v5\EE319KwareSpring2023\Lab8_EE319K\Lab8.uvprojx
+Project File Date:  04/17/2023
+
+<h2>Output:</h2>
+*** Using Compiler 'V6.19', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
+Build target 'Lab8'
+Timer2A.c(3): error: unknown type name 'uint32_t'
+uint32_t TimerCount;
+^
+Timer2A.c(5): error: unknown type name 'uint32_t'
+void Timer2_Init(uint32_t period){
+                 ^
+Timer2A.c(7): error: use of undeclared identifier 'uint32_t'
+  uint32_t volatile delay;
+  ^
+Timer2A.c(9): error: use of undeclared identifier 'SYSCTL_RCGCTIMER_R'
+  SYSCTL_RCGCTIMER_R |= 0x04;   // 0) activate timer2
+  ^
+Timer2A.c(11): error: use of undeclared identifier 'delay'
+  delay = SYSCTL_RCGCTIMER_R;
+  ^
+Timer2A.c(11): error: use of undeclared identifier 'SYSCTL_RCGCTIMER_R'
+  delay = SYSCTL_RCGCTIMER_R;
+          ^
+Timer2A.c(15): error: use of undeclared identifier 'TIMER2_CTL_R'
+  TIMER2_CTL_R = 0x00000000;   // 1) disable timer2A
+  ^
+Timer2A.c(17): error: use of undeclared identifier 'TIMER2_CFG_R'
+  TIMER2_CFG_R = 0x00000000;   // 2) 32-bit mode
+  ^
+Timer2A.c(19): error: use of undeclared identifier 'TIMER2_TAMR_R'
+  TIMER2_TAMR_R = 0x00000002;  // 3) periodic mode
+  ^
+Timer2A.c(21): error: use of undeclared identifier 'TIMER2_TAILR_R'
+  TIMER2_TAILR_R = period-1;   // 4) reload value
+  ^
+Timer2A.c(23): error: use of undeclared identifier 'TIMER2_TAPR_R'
+  TIMER2_TAPR_R = 0;           // 5) clock resolution
+  ^
+Timer2A.c(25): error: use of undeclared identifier 'TIMER2_ICR_R'
+  TIMER2_ICR_R = 0x00000001;   // 6) clear timeout flag
+  ^
+Timer2A.c(27): error: use of undeclared identifier 'TIMER2_IMR_R'
+  TIMER2_IMR_R = 0x00000001;   // 7) arm timeout
+  ^
+Timer2A.c(29): error: use of undeclared identifier 'NVIC_PRI5_R'
+  NVIC_PRI5_R = (NVIC_PRI5_R&0x00FFFFFF)|0x80000000;
+  ^
+Timer2A.c(29): error: use of undeclared identifier 'NVIC_PRI5_R'
+  NVIC_PRI5_R = (NVIC_PRI5_R&0x00FFFFFF)|0x80000000;
+                 ^
+Timer2A.c(33): error: use of undeclared identifier 'NVIC_EN0_R'
+  NVIC_EN0_R = 1<<23;          // 9) enable IRQ 23 in
+  ^
+Timer2A.c(35): error: use of undeclared identifier 'TIMER2_CTL_R'
+  TIMER2_CTL_R = 0x00000001;   // 10) enable timer2A
+  ^
+Timer2A.c(45): error: use of undeclared identifier 'TIMER2_ICR_R'
+  TIMER2_ICR_R = 0x00000001;  // acknowledge
+  ^
+Timer2A.c(55): error: use of undeclared identifier 'TIMER2_CTL_R'
+  TIMER2_CTL_R &= ~0x00000001; // disable
+  ^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
+compiling Timer2A.c...
+".\Lab8.axf" - 19 Error(s), 0 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.9.0.pack
+                ARM.CMSIS.5.9.0
+                CMSIS (Common Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.6.0
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.TM4C_DFP.1.1.0.pack
+                Keil.TM4C_DFP.1.1.0
+                Texas Instruments Tiva C Series Device Support and Examples
+
+<h2>Collection of Component include folders:</h2>
+  ./RTE/_Lab8
+  C:/Users/anesw/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include
+  C:/Users/anesw/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.6.0
+Target not created.
+Build Time Elapsed:  00:00:00
+</pre>
+</body>
+</html>
